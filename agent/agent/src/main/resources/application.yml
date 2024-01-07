@@ -1,6 +1,6 @@
 spring:
   application:
-    name: clients
+    name: agents
   config:
     import: optional:configserver://localhost:8888
   datasource:
@@ -20,4 +20,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 server:
-  port: 8070
+  port: 8090
