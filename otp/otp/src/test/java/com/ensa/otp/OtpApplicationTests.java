@@ -1,10 +1,10 @@
-package com.ensa.EmailSender;
+package com.ensa.otp;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class EmailSenderApplicationTests {
+class OtpApplicationTests {
 
 	@Test
 	void contextLoads() {

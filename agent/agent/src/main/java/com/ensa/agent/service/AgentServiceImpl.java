@@ -4,19 +4,23 @@ import com.ensa.agent.DTO.AddAmountToWalletRequest;
 import com.ensa.agent.DTO.AddClientRequest;
 import com.ensa.agent.entity.Client;
 import com.ensa.agent.entity.Wallet;
+import com.ensa.agent.otp.OtpClient;
 import com.ensa.agent.repo.ClientRepository;
 import com.ensa.agent.repo.WalletRepository;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+
 @RequiredArgsConstructor
 @Service
 public class AgentServiceImpl implements AgentService {
 
-    private final ClientRepository clientRepository;
+    private final  ClientRepository clientRepository;
     private final WalletRepository walletRepository;
+    private final OtpClient otpClient;
     @Override
     public void addClient(AddClientRequest addClientRequest) {
         Client client = Client.builder()
@@ -34,7 +38,7 @@ public class AgentServiceImpl implements AgentService {
         clientRepository.save(client);
         wallet.setClient(client);
         walletRepository.save(wallet);
-
+        otpClient.sendOTP();
     }
 
     @Override

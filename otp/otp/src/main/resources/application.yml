@@ -1,6 +1,17 @@
 spring:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: hamza.elaafani.2001@gmail.com
+    password: elpbiehtvoncbyjd
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
   application:
-    name: agents
+    name: clients
   config:
     import: optional:configserver://localhost:8888
   datasource:
@@ -20,8 +31,4 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 server:
-  port: 8090
-
-application:
-  config:
-    otp-url: http://localhost:8081/api/v1/otp
+  port: 8081

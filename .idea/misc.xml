@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/config-server/config-server/pom.xml" />
         <option value="$PROJECT_DIR$/discovery/discovery/pom.xml" />
         <option value="$PROJECT_DIR$/gateway/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/otp/otp/pom.xml" />
       </list>
     </option>
   </component>

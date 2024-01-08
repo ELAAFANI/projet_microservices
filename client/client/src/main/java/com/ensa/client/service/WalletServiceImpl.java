@@ -4,6 +4,7 @@ import com.ensa.client.DTO.SendMoneyRequest;
 import com.ensa.client.DTO.WalletBalanceRequest;
 import com.ensa.client.entity.Client;
 import com.ensa.client.repo.ClientRepository;
+import com.ensa.client.repo.WalletRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ import java.util.Optional;
 @Service
 public class WalletServiceImpl implements WalletService {
     private final ClientRepository clientRepository;
+    private final WalletRepository walletRepository;
+
     @Override
     public Double getWalletBalance(WalletBalanceRequest walletBalanceRequest) {
         Optional<Client> client = clientRepository.findClientByEmailAndPassword(walletBalanceRequest.getEmail(),walletBalanceRequest.getPassword());
@@ -36,7 +39,9 @@ public class WalletServiceImpl implements WalletService {
             else{
                 if(receiver.isPresent()){
                     sender.get().getWallet().setBalance(sender.get().getWallet().getBalance() - sendMoneyRequest.getAmount());
-                    receiver.get().getWallet().setBalance(sender.get().getWallet().getBalance() + sendMoneyRequest.getAmount());
+                    receiver.get().getWallet().setBalance(receiver.get().getWallet().getBalance() + sendMoneyRequest.getAmount());
+                    clientRepository.save(sender.get());
+                    clientRepository.save(receiver.get());
                 }
                 else {
                     throw new RuntimeException("Receiver not Found");

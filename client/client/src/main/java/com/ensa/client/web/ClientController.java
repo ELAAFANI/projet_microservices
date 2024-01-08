@@ -21,7 +21,7 @@ public class ClientController {
 
     @PutMapping("/send")
     @ResponseStatus(HttpStatus.OK)
-    public void sendMoney(SendMoneyRequest sendMoneyRequest){
+    public void sendMoney(@RequestBody SendMoneyRequest sendMoneyRequest){
         walletService.sendMoney(sendMoneyRequest);
     }
 }
