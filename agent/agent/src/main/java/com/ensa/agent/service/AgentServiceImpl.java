@@ -5,6 +5,7 @@ import com.ensa.agent.DTO.AddClientRequest;
 import com.ensa.agent.entity.Client;
 import com.ensa.agent.entity.Wallet;
 import com.ensa.agent.otp.OtpClient;
+import com.ensa.agent.otp.SendEmailRequest;
 import com.ensa.agent.repo.ClientRepository;
 import com.ensa.agent.repo.WalletRepository;
 import lombok.AllArgsConstructor;
@@ -38,7 +39,11 @@ public class AgentServiceImpl implements AgentService {
         clientRepository.save(client);
         wallet.setClient(client);
         walletRepository.save(wallet);
-        otpClient.sendOTP();
+       /* otpClient.sendEmail(SendEmailRequest.builder()
+        .toEmail(addClientRequest.getEmail())
+                       .subject("OTP")
+                       .body("0000")
+               .build());*/
     }
 
     @Override
