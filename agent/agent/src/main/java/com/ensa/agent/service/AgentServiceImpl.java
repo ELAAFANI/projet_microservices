@@ -39,7 +39,7 @@ public class AgentServiceImpl implements AgentService {
         clientRepository.save(client);
         wallet.setClient(client);
         walletRepository.save(wallet);
-       /* otpClient.sendEmail(SendEmailRequest.builder()
+       /*otpClient.sendEmail(SendEmailRequest.builder()
         .toEmail(addClientRequest.getEmail())
                        .subject("OTP")
                        .body("0000")

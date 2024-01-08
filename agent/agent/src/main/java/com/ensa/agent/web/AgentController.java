@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/v1/agent")
 @RequiredArgsConstructor
+@CrossOrigin
 public class AgentController {
     private final AgentService agentService;
 

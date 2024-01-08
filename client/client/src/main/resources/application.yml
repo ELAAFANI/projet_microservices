@@ -4,10 +4,10 @@ spring:
   config:
     import: optional:configserver://localhost:8888
   datasource:
-    url: jdbc:mysql://localhost:8889/client?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:8889/client?createDatabaseIfNotExist=true&userSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
     password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
