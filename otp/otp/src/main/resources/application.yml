@@ -11,7 +11,7 @@ spring:
           starttls:
             enable: true
   application:
-    name: clients
+    name: otp
   config:
     import: optional:configserver://localhost:8888
   datasource:

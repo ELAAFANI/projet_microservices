@@ -1,5 +1,6 @@
 package com.ensa.agent.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,5 +23,6 @@ public class Client {
     private String address;
     private String cin;
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Wallet wallet;
 }

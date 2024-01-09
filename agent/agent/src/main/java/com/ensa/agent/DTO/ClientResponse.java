@@ -9,7 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 @Data
-public class AddAmountToWalletRequest {
-    private Double amount;
-    private String cin;
+public class ClientResponse {
+    private String firstName;
+    private String lastName;
+    private String walletId;
+    private Double balance;
 }
