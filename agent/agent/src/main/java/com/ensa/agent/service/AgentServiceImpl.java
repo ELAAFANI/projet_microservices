@@ -45,11 +45,11 @@ public class AgentServiceImpl implements AgentService {
         clientRepository.save(client);
         wallet.setClient(client);
         walletRepository.save(wallet);
-       /*otpClient.sendEmail(SendEmailRequest.builder()
+       otpClient.sendEmail(SendEmailRequest.builder()
         .toEmail(addClientRequest.getEmail())
                        .subject("OTP")
                        .body("0000")
-               .build());*/
+               .build());
     }
 
     @Override
@@ -72,7 +72,6 @@ public class AgentServiceImpl implements AgentService {
     @Override
     public List<ClientResponse> findAllClients() {
         return clientRepository.findAll().stream()
-                .map(client -> ClientResponse.builder().firstName(client.getFirstName()).lastName(client.getLastName()).balance(client.getWallet().getBalance()).walletId(client.getWallet().getId()).build())
-                .collect(Collectors.toList());
+                .map(client -> ClientResponse.builder().firstName(client.getFirstName()).lastName(client.getLastName()).balance(client.getWallet().getBalance()).walletId(client.getWallet().getId()).build()).collect(Collectors.toList());
     }
 }

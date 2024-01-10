@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class EmailSenderController {
     private final EmailSenderService emailSenderService;
     @PostMapping
-    public @ResponseBody void sendEmail(SendEmailRequest sendEmailRequest){
+    public @ResponseBody void sendEmail(@RequestBody SendEmailRequest sendEmailRequest){
         emailSenderService.sendEmail(sendEmailRequest);
     }
 }
