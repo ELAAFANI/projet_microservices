@@ -2,8 +2,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: hamza.elaafani.2001@gmail.com
-    password: elpbiehtvoncbyjd
+    username:
+    password:
     properties:
       mail:
         smtp:
@@ -15,9 +15,9 @@ spring:
   config:
     import: optional:configserver://localhost:8888
   datasource:
-    url: jdbc:mysql://localhost:8889/client?createDatabaseIfNotExist=true
-    username: root
-    password: root
+    url:
+    username:
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
